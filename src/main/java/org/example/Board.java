@@ -75,7 +75,7 @@ public class Board {
                 if (board[i][j] == 1){
                     System.out.print("*");
                 } else {
-                    System.out.println("-");
+                    System.out.print("-");
                 }
             }
             System.out.println();
