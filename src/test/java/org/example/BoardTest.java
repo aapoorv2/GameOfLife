@@ -50,7 +50,7 @@ class BoardTest {
     void testCountAliveNeighboursTopRightCorner() {
         int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
         Board board = new Board(4, 4, mockBoard);
-        assertEquals(1, board.countAliveNeighbours(0, 0));
+        assertEquals(3, board.countAliveNeighbours(0, 3));
     }
 
 
