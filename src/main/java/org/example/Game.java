@@ -33,7 +33,7 @@ public class Game {
                     nextBoard[i][j] = 0;
                 } else if (board.get(i, j) == 0 && aliveNeighbours == 3) {
                     nextBoard[i][j] = 1;
-                }
+                } else nextBoard[i][j] = board.get(i, j);
             }
         }
         return nextBoard;
