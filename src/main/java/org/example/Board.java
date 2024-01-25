@@ -69,5 +69,16 @@ public class Board {
     void set(int row, int column, int value) {
         board[row][column] = value;
     }
-
+    void print() {
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                if (board[i][j] == 1){
+                    System.out.print("*");
+                } else {
+                    System.out.println("-");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
