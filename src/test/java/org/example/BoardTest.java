@@ -39,6 +39,13 @@ class BoardTest {
     }
 
     @Test
+    @DisplayName("Testing Neighbouring cells count for a 1 x 1 board")
+    void testCountAliveNeighboursFor1by1() {
+        int[][] mockBoard = {{1}};
+        Board board = new Board(1, 1, mockBoard);
+        assertEquals(0, board.countAliveNeighbours(0, 0));
+    }
+    @Test
     @DisplayName("Testing Neighbouring cells count of the Top left corner")
     void testCountAliveNeighboursTopLeftCorner() {
         int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
