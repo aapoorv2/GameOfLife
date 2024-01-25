@@ -51,7 +51,17 @@ public class Board {
     }
 
     int countAliveNeighbours(int row, int col) {
-        return 0;
+        int count = 0;
+        int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        for (int i = 0 ; i < 8 ; i++) {
+            int nRow = row + dirs[i][0];
+            int nCol = col + dirs[i][1];
+            if (nRow < 0 || nRow == rows || nCol < 0 || nCol == columns) {
+                continue;
+            }
+            count += board[nRow][nCol];
+        }
+        return count;
     }
     int get(int row, int column) {
         return board[row][column];

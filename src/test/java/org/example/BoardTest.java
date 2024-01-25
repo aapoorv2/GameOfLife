@@ -39,10 +39,17 @@ class BoardTest {
     }
 
     @Test
-    @DisplayName("Testing Neighbouring cells count")
-    void testCountAliveNeighbours() {
+    @DisplayName("Testing Neighbouring cells count from the Top left corner")
+    void testCountAliveNeighboursTopLeftCorner() {
         int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(5, 9, mockBoard);
+        Board board = new Board(4, 4, mockBoard);
+        assertEquals(1, board.countAliveNeighbours(0, 0));
+    }
+    @Test
+    @DisplayName("Testing Neighbouring cells count from the Top Right corner")
+    void testCountAliveNeighboursTopRightCorner() {
+        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+        Board board = new Board(4, 4, mockBoard);
         assertEquals(1, board.countAliveNeighbours(0, 0));
     }
 
