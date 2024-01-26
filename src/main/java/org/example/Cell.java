@@ -12,7 +12,22 @@ public class Cell {
     boolean isAlive() {
         return state == State.ALIVE;
     }
-    void applyRules(Cell[] neighbours) {
 
+    void applyRules(Cell[] neighbours) {
+        int aliveCount = countAliveNeighbours(neighbours);
+        if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
+            this.state = State.DEAD;
+        } else if (!isAlive() && aliveCount == 3) {
+            this.state = State.DEAD;
+        }
+    }
+    int countAliveNeighbours(Cell[] neighbours) {
+        int countAlive = 0;
+        for (Cell cell : neighbours) {
+            if(cell.isAlive()) {
+                countAlive++;
+            }
+        }
+        return countAlive;
     }
 }
