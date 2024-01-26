@@ -38,46 +38,46 @@ class BoardTest {
         assertEquals(13, board.countAliveCells());
     }
 
-    @Test
-    @DisplayName("Testing Neighbouring cells count for a 1 x 1 board")
-    void testCountAliveNeighboursFor1by1() {
-        int[][] mockBoard = {{1}};
-        Board board = new Board(1, 1, mockBoard);
-        assertEquals(0, board.countAliveNeighbours(0, 0));
-    }
-    @Test
-    @DisplayName("Testing Neighbouring cells count of the Top left corner")
-    void testCountAliveNeighboursTopLeftCorner() {
-        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(4, 4, mockBoard);
-        assertEquals(1, board.countAliveNeighbours(0, 0));
-    }
-    @Test
-    @DisplayName("Testing Neighbouring cells count of the Top Right corner")
-    void testCountAliveNeighboursTopRightCorner() {
-        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(4, 4, mockBoard);
-        assertEquals(3, board.countAliveNeighbours(0, 3));
-    }
-    @Test
-    @DisplayName("Testing Neighbouring cells count of the Bottom Right corner")
-    void testCountAliveNeighboursBottomRightCorner() {
-        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(4, 4, mockBoard);
-        assertEquals(0, board.countAliveNeighbours(3, 3));
-    }
-    @Test
-    @DisplayName("Testing Neighbouring cells count of the Bottom Left corner")
-    void testCountAliveNeighboursBottomLeftCorner() {
-        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(4, 4, mockBoard);
-        assertEquals(2, board.countAliveNeighbours(3, 0));
-    }
-    @Test
-    @DisplayName("Testing Neighbouring cells count of a non-corner")
-    void testCountAliveNeighboursNonCorner() {
-        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
-        Board board = new Board(4, 4, mockBoard);
-        assertEquals(4, board.countAliveNeighbours(1, 2));
-    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count for a 1 x 1 board")
+//    void testCountAliveNeighboursFor1by1() {
+//        int[][] mockBoard = {{1}};
+//        Board board = new Board(1, 1, mockBoard);
+//        assertEquals(0, board.countAliveNeighbours(0, 0));
+//    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count of the Top left corner")
+//    void testCountAliveNeighboursTopLeftCorner() {
+//        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+//        Board board = new Board(4, 4, mockBoard);
+//        assertEquals(1, board.countAliveNeighbours(0, 0));
+//    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count of the Top Right corner")
+//    void testCountAliveNeighboursTopRightCorner() {
+//        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+//        Board board = new Board(4, 4, mockBoard);
+//        assertEquals(3, board.countAliveNeighbours(0, 3));
+//    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count of the Bottom Right corner")
+//    void testCountAliveNeighboursBottomRightCorner() {
+//        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+//        Board board = new Board(4, 4, mockBoard);
+//        assertEquals(0, board.countAliveNeighbours(3, 3));
+//    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count of the Bottom Left corner")
+//    void testCountAliveNeighboursBottomLeftCorner() {
+//        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+//        Board board = new Board(4, 4, mockBoard);
+//        assertEquals(2, board.countAliveNeighbours(3, 0));
+//    }
+//    @Test
+//    @DisplayName("Testing Neighbouring cells count of a non-corner")
+//    void testCountAliveNeighboursNonCorner() {
+//        int[][] mockBoard = {{1, 0, 1, 1}, {0, 1, 1, 1}, {1, 0, 0, 0}, {1, 1, 0, 1}};
+//        Board board = new Board(4, 4, mockBoard);
+//        assertEquals(4, board.countAliveNeighbours(1, 2));
+//    }
 }

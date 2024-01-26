@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.List;
+
 public class Cell {
     private final int row;
     private final int column;
@@ -13,7 +15,7 @@ public class Cell {
         return state == State.ALIVE;
     }
 
-    void applyRules(Cell[] neighbours) {
+    void applyRules(List<Cell> neighbours) {
         int aliveCount = countAliveNeighbours(neighbours);
         if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
             this.state = State.DEAD;
@@ -21,7 +23,7 @@ public class Cell {
             this.state = State.ALIVE;
         }
     }
-    int countAliveNeighbours(Cell[] neighbours) {
+    int countAliveNeighbours(List<Cell> neighbours) {
         int countAlive = 0;
         for (Cell cell : neighbours) {
             if(cell.isAlive()) {

@@ -1,11 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Board {
     private final int rows;
     private final int columns;
-    private int[][] board;
+    private Cell[][] cells;
     private final int fillPercent;
 
     Board(int rows, int columns, int fillPercent) {
@@ -15,14 +17,19 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
         this.fillPercent = fillPercent;
-        this.board = new int[rows][columns];
+        this.cells = new Cell[rows][columns];
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                cells[i][j] = new Cell(i, j, State.DEAD);
+            }
+        }
         initialize_board();
 
     }
-    Board(int rows, int columns, int[][] board) {
+    Board(int rows, int columns, Cell[][] cells) {
         this.rows = rows;
         this.columns = columns;
-        this.board = board;
+        this.cells = cells;
         this.fillPercent = 0;
     }
 
@@ -33,25 +40,42 @@ public class Board {
             Random rand = new Random();
             int i = rand.nextInt(rows);
             int j = rand.nextInt(columns);
-            if (board[i][j] == 0) {
-                board[i][j] = 1;
+            if (!cells[i][j].isAlive()) {
+                cells[i][j] = new Cell(i, j, State.ALIVE);
                 filled++;
             }
         }
+
+    }
+    void update() {
+//        Cell[][] nextCells = new Cell[rows][columns];
+//        for (int i = 0 ; i < rows ; i++) {
+//            for (int j = 0 ; j < columns ; j++) {
+//                nextCells[i][j] = new Cell(i, j, State.DEAD);
+//            }
+//        }
+//        for (int i = 0 ; i < rows ; i++) {
+//            for (int j = 0 ; j < columns ; j++) {
+//                List<Cell> neighbours = retrieveNeighboursOfCell(i, j);
+//                cells[i][j].applyRules(neighbours);
+//            }
+//        }
     }
 
     int countAliveCells() {
         int count = 0;
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
-                count += board[i][j];
+                if (cells[i][j].isAlive()) {
+                    count++;
+                }
             }
         }
         return count;
     }
 
-    int countAliveNeighbours(int row, int col) {
-        int count = 0;
+    List<Cell> retrieveNeighboursOfCell(int row, int col) {
+        List<Cell> neighbours = new ArrayList<>();
         int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
         for (int i = 0 ; i < 8 ; i++) {
             int nRow = row + dirs[i][0];
@@ -59,21 +83,15 @@ public class Board {
             if (nRow < 0 || nRow == rows || nCol < 0 || nCol == columns) {
                 continue;
             }
-            count += board[nRow][nCol];
+            neighbours.add(cells[nRow][nCol]);
         }
-        return count;
-    }
-    int get(int row, int column) {
-        return board[row][column];
-    }
-    void set(int row, int column, int value) {
-        board[row][column] = value;
+        return neighbours;
     }
     void print() {
 
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
-                if (board[i][j] == 1){
+                if (cells[i][j].isAlive()){
                     System.out.print("*");
                 } else {
                     System.out.print("-");
