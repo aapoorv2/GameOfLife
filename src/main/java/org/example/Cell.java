@@ -18,7 +18,7 @@ public class Cell {
         if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
             this.state = State.DEAD;
         } else if (!isAlive() && aliveCount == 3) {
-            this.state = State.DEAD;
+            this.state = State.ALIVE;
         }
     }
     int countAliveNeighbours(Cell[] neighbours) {
