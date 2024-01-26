@@ -3,7 +3,7 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Game game = new Game(5, 10, 20);
+        Game game = new Game(10, 10, 50);
         game.start();
     }
 }

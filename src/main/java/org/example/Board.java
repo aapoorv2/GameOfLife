@@ -70,6 +70,7 @@ public class Board {
         board[row][column] = value;
     }
     void print() {
+
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
                 if (board[i][j] == 1){
@@ -80,5 +81,6 @@ public class Board {
             }
             System.out.println();
         }
+
     }
 }
