@@ -29,7 +29,7 @@ class CellTest {
         assertEquals(4, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4))));
     }
     @Test
-    void testCountAliveNeighboursWith1AliveCells() {
+    void testCountAliveNeighboursWith1AliveCell() {
         Cell cell1 = new Cell(State.DEAD);
         Cell cell2 = new Cell(State.ALIVE);
         Cell cell3 = new Cell(State.DEAD);
@@ -82,6 +82,16 @@ class CellTest {
     @Test
     void testApplyRulesWith1AliveNeighboursAndCurrentCellAlive() {
         Cell cell1 = new Cell(State.ALIVE);
+        Cell cell2 = new Cell(State.DEAD);
+        Cell cell3 = new Cell(State.DEAD);
+        Cell cell = new Cell(State.ALIVE);
+        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.update();
+        assertFalse(cell.isAlive());
+    }
+    @Test
+    void testApplyRulesWithNoAliveNeighboursAndCurrentCellAlive() {
+        Cell cell1 = new Cell(State.DEAD);
         Cell cell2 = new Cell(State.DEAD);
         Cell cell3 = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);

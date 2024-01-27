@@ -11,7 +11,7 @@ public class Board {
     private final int fillPercent;
 
     Board(int rows, int columns, int fillPercent) {
-        if (rows < 0 || columns < 0 || fillPercent < 0) {
+        if (rows <= 0 || columns <= 0 || fillPercent < 0) {
             throw new RuntimeException();
         }
         this.rows = rows;
@@ -80,7 +80,8 @@ public class Board {
         }
         return neighbours;
     }
-    void print() {
+    void print(int generation) {
+        System.out.println("Generation " + generation + ":");
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
                 if (cells[i][j].isAlive()){

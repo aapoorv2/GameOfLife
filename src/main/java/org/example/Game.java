@@ -8,12 +8,14 @@ public class Game {
     }
     void start() throws InterruptedException {
         int aliveCellsCount = board.countAliveCells();
-        board.print();
+        int generation = 1;
+        board.print(generation);
         while (aliveCellsCount > 0) {
             board.update();
             aliveCellsCount = board.countAliveCells();
             Thread.sleep(1000);
-            board.print();
+            generation++;
+            board.print(generation);
         }
     }
 
