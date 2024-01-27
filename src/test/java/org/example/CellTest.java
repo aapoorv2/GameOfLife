@@ -47,6 +47,7 @@ class CellTest {
         Cell cell4 = new Cell(2, 0, State.ALIVE);
         Cell cell = new Cell(1, 1, State.ALIVE);
         cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4)));
+        cell.update();
         assertFalse(cell.isAlive());
     }
     @Test
@@ -57,6 +58,7 @@ class CellTest {
         Cell cell4 = new Cell(2, 0, State.ALIVE);
         Cell cell = new Cell(1, 1, State.DEAD);
         cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4)));
+        cell.update();
         assertFalse(cell.isAlive());
     }
     @Test
@@ -66,6 +68,7 @@ class CellTest {
         Cell cell3 = new Cell(1, 0, State.ALIVE);
         Cell cell = new Cell(1, 1, State.DEAD);
         cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.update();
         assertTrue(cell.isAlive());
     }
     @Test
@@ -75,6 +78,7 @@ class CellTest {
         Cell cell3 = new Cell(1, 0, State.ALIVE);
         Cell cell = new Cell(1, 1, State.ALIVE);
         cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.update();
         assertTrue(cell.isAlive());
     }
     @Test
@@ -84,6 +88,7 @@ class CellTest {
         Cell cell3 = new Cell(1, 0, State.DEAD);
         Cell cell = new Cell(1, 1, State.ALIVE);
         cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.update();
         assertFalse(cell.isAlive());
     }
 

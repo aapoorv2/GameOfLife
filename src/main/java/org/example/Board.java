@@ -48,18 +48,17 @@ public class Board {
 
     }
     void update() {
-//        Cell[][] nextCells = new Cell[rows][columns];
-//        for (int i = 0 ; i < rows ; i++) {
-//            for (int j = 0 ; j < columns ; j++) {
-//                nextCells[i][j] = new Cell(i, j, State.DEAD);
-//            }
-//        }
-//        for (int i = 0 ; i < rows ; i++) {
-//            for (int j = 0 ; j < columns ; j++) {
-//                List<Cell> neighbours = retrieveNeighboursOfCell(i, j);
-//                cells[i][j].applyRules(neighbours);
-//            }
-//        }
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                List<Cell> neighbours = retrieveNeighboursOfCell(i, j);
+                cells[i][j].applyRules(neighbours);
+            }
+        }
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                cells[i][j].update();
+            }
+        }
     }
 
     int countAliveCells() {
@@ -88,7 +87,6 @@ public class Board {
         return neighbours;
     }
     void print() {
-
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
                 if (cells[i][j].isAlive()){
