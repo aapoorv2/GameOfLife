@@ -20,17 +20,11 @@ public class Board {
         this.cells = new Cell[rows][columns];
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
-                cells[i][j] = new Cell(i, j, State.DEAD);
+                cells[i][j] = new Cell(State.DEAD);
             }
         }
         initialize_board();
 
-    }
-    Board(int rows, int columns, Cell[][] cells) {
-        this.rows = rows;
-        this.columns = columns;
-        this.cells = cells;
-        this.fillPercent = 0;
     }
 
     void initialize_board() {
@@ -41,7 +35,7 @@ public class Board {
             int i = rand.nextInt(rows);
             int j = rand.nextInt(columns);
             if (!cells[i][j].isAlive()) {
-                cells[i][j] = new Cell(i, j, State.ALIVE);
+                cells[i][j] = new Cell(State.ALIVE);
                 filled++;
             }
         }
@@ -73,7 +67,7 @@ public class Board {
         return count;
     }
 
-    List<Cell> retrieveNeighboursOfCell(int row, int col) {
+    private List<Cell> retrieveNeighboursOfCell(int row, int col) {
         List<Cell> neighbours = new ArrayList<>();
         int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
         for (int i = 0 ; i < 8 ; i++) {

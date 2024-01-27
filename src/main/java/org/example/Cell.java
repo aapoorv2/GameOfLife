@@ -3,13 +3,9 @@ package org.example;
 import java.util.List;
 
 public class Cell {
-    private final int row;
-    private final int column;
     private State state;
     private State newState;
-    Cell(int row, int column, State state) {
-        this.row = row;
-        this.column = column;
+    Cell(State state) {
         this.state = state;
         this.newState = state;
     }
