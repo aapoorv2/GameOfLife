@@ -11,7 +11,7 @@ public class Main {
         int rows = scanner.nextInt();
         System.out.println("Enter the number of Columns");
         int cols = scanner.nextInt();
-        System.out.println("Enter the percentage of the board with alive cells");
+        System.out.println("Enter the percentage of the board to populate");
         int fillPercent = scanner.nextInt();
         Game game = new Game(rows, cols, fillPercent);
         game.start();
