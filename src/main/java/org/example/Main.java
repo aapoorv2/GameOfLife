@@ -15,5 +15,6 @@ public class Main {
         int fillPercent = scanner.nextInt();
         Game game = new Game(rows, cols, fillPercent);
         game.start();
+
     }
 }

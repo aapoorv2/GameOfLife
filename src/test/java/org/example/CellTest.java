@@ -91,7 +91,7 @@ class CellTest {
     }
     @Test
     void testApplyRulesWithNoAliveNeighboursAndCurrentCellAlive() {
-        Cell cell1 = new Cell(State.DEAD);
+        Cell cell1 = new Cell(State.DEAD                    );
         Cell cell2 = new Cell(State.DEAD);
         Cell cell3 = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
