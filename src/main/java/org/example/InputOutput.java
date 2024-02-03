@@ -20,4 +20,18 @@ public class InputOutput {
         System.out.println("Enter the percentage of the board to populate");
         return scanner.nextInt();
     }
+
+    void printBoard(Cell[][] cells, int rows, int columns, int generation) {
+        System.out.println("Generation " + generation + ":");
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                if (cells[i][j].isAlive()){
+                    System.out.print("*");
+                } else {
+                    System.out.print("-");
+                }
+            }
+            System.out.println();
+        }
+    }
 }

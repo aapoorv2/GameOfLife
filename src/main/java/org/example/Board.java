@@ -81,17 +81,6 @@ public class Board {
         return neighbours;
     }
     void print(int generation) {
-        System.out.println("Generation " + generation + ":");
-        for (int i = 0 ; i < rows ; i++) {
-            for (int j = 0 ; j < columns ; j++) {
-                if (cells[i][j].isAlive()){
-                    System.out.print("*");
-                } else {
-                    System.out.print("-");
-                }
-            }
-            System.out.println();
-        }
-
+        InputOutput.instance().printBoard(cells, rows, columns, generation);
     }
 }
