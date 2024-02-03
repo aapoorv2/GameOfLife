@@ -46,18 +46,26 @@ class BoardTest {
         assertEquals(0, board.countAliveCells());
     }
     @Test
-    public void testRetrieveNeighboursOfCell() {
-        // Arrange
+    public void testRetrieveNeighboursOfCellAtPosition1_1() {
         int rows = 3;
         int columns = 3;
         int fillPercent = 50;
         Board board = new Board(rows, columns, fillPercent);
 
-        // Act
         List<Cell> neighbours = board.retrieveNeighboursOfCell(1, 1);
 
-        // Assert
         assertEquals(8, neighbours.size());
+    }
+    @Test
+    public void testRetrieveNeighboursOfCellAtPosition0_0() {
+        int rows = 3;
+        int columns = 3;
+        int fillPercent = 50;
+        Board board = new Board(rows, columns, fillPercent);
+
+        List<Cell> neighbours = board.retrieveNeighboursOfCell(0, 0);
+
+        assertEquals(3, neighbours.size());
     }
 
 
