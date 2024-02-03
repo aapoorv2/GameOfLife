@@ -23,11 +23,11 @@ public class Board {
                 cells[i][j] = new Cell(State.DEAD);
             }
         }
-        initialize_board();
+        initializeBoard();
 
     }
 
-    void initialize_board() {
+    void initializeBoard() {
         int filled = 0;
         int total = (this.fillPercent * this.rows * this.columns) / 100;
         while (filled < total) {

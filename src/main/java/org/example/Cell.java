@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Cell {
     private State state;
-    private State newState;
+    private State nextState;
     Cell(State state) {
         this.state = state;
-        this.newState = state;
+        this.nextState = state;
     }
     boolean isAlive() {
         return state == State.ALIVE;
@@ -16,13 +16,13 @@ public class Cell {
     void applyRules(List<Cell> neighbours) {
         int aliveCount = countAliveNeighbours(neighbours);
         if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
-            this.newState = State.DEAD;
+            this.nextState = State.DEAD;
         } else if (!isAlive() && aliveCount == 3) {
-            this.newState = State.ALIVE;
+            this.nextState = State.ALIVE;
         }
     }
     void update() {
-        this.state = this.newState;
+        this.state = this.nextState;
     }
     int countAliveNeighbours(List<Cell> neighbours) {
         int countAlive = 0;

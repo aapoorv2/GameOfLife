@@ -6,15 +6,11 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of Rows");
-        int rows = scanner.nextInt();
-        System.out.println("Enter the number of Columns");
-        int cols = scanner.nextInt();
-        System.out.println("Enter the percentage of the board to populate");
-        int fillPercent = scanner.nextInt();
+
+        int rows = InputOutput.instance().getRowInputFromTheUser();
+        int cols = InputOutput.instance().getColumnInputFromTheUser();
+        int fillPercent = InputOutput.instance().getFillPercentageFromTheUser();
         Game game = new Game(rows, cols, fillPercent);
         game.start();
-
     }
 }
