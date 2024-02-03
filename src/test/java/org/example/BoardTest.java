@@ -3,6 +3,8 @@ package org.example;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
@@ -42,6 +44,20 @@ class BoardTest {
     void testCountOfAliveCellsWith5Rows15ColsAndSeedPercent0() {
         Board board = new Board(5, 15, 0);
         assertEquals(0, board.countAliveCells());
+    }
+    @Test
+    public void testRetrieveNeighboursOfCell() {
+        // Arrange
+        int rows = 3;
+        int columns = 3;
+        int fillPercent = 50;
+        Board board = new Board(rows, columns, fillPercent);
+
+        // Act
+        List<Cell> neighbours = board.retrieveNeighboursOfCell(1, 1);
+
+        // Assert
+        assertEquals(8, neighbours.size());
     }
 
 

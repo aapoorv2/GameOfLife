@@ -67,7 +67,7 @@ public class Board {
         return count;
     }
 
-    private List<Cell> retrieveNeighboursOfCell(int row, int col) {
+    List<Cell> retrieveNeighboursOfCell(int row, int col) {
         List<Cell> neighbours = new ArrayList<>();
         int[][] dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
         for (int i = 0 ; i < 8 ; i++) {
