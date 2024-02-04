@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.exceptions.InvalidDimensionsException;
+import org.example.exceptions.InvalidSeedException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,8 +14,11 @@ public class Board {
     private final int fillPercent;
 
     Board(int rows, int columns, int fillPercent) {
-        if (rows <= 0 || columns <= 0 || fillPercent < 0) {
-            throw new RuntimeException();
+        if (rows <= 0 || columns <= 0) {
+            throw new InvalidDimensionsException();
+        }
+        if (fillPercent < 0) {
+            throw new InvalidSeedException();
         }
         this.rows = rows;
         this.columns = columns;

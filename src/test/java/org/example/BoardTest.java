@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exceptions.InvalidDimensionsException;
+import org.example.exceptions.InvalidSeedException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,10 +11,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
     @Test
-    @DisplayName("if the number of Rows or Columns, or the fill percentage are negative, throw an exception")
-    void testNonNegativeValues() {
-        assertThrows(RuntimeException.class, () -> {
-            Board board = new Board(-11, -2, -10);
+    @DisplayName("if the number of Rows or Columns are negative, throw an exception")
+    void testThrowingAnExceptionWhenPassingNonPositiveDimensions() {
+        assertThrows(InvalidDimensionsException.class, () -> {
+            Board board = new Board(-11, -2, 1);
+        });
+    }
+    @Test
+    @DisplayName("if the number of Rows or Columns are negative, throw an exception")
+    void testThrowingAnExceptionWhenPassingNegativeFillPercentage() {
+        assertThrows(InvalidSeedException.class, () -> {
+            Board board = new Board(10, 2, -9);
         });
     }
     @Test
