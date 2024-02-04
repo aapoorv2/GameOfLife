@@ -1,7 +1,7 @@
 package org.example;
 
 public class Game {
-    private Board board;
+    private final Board board;
 
     Game(int rows, int columns, int fillPercent) {
         this.board = new Board(rows, columns, fillPercent);
