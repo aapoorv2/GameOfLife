@@ -20,82 +20,82 @@ class CellTest {
     }
     @Test
     void testCountAliveNeighboursWith4AliveCells() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.ALIVE);
-        Cell cell4 = new Cell(State.ALIVE);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.ALIVE);
+        Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
 
-        assertEquals(4, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4))));
+        assertEquals(4, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell))));
     }
     @Test
     void testCountAliveNeighboursWith1AliveCell() {
-        Cell cell1 = new Cell(State.DEAD);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.DEAD);
+        Cell firstCell = new Cell(State.DEAD);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.DEAD);
-        Cell[] neighbours = {cell1, cell2, cell3};
-        assertEquals(1, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(cell1, cell2, cell3))));
+        Cell[] neighbours = {firstCell, secondCell, thirdCell};
+        assertEquals(1, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell))));
     }
     @Test
     void testApplyRulesWith4AliveNeighboursAndCurrentCellAlive() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.ALIVE);
-        Cell cell4 = new Cell(State.ALIVE);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.ALIVE);
+        Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
     @Test
     void testApplyRulesWith4AliveNeighboursAndCurrentCellDead() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.ALIVE);
-        Cell cell4 = new Cell(State.ALIVE);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.ALIVE);
+        Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3, cell4)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellDead() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.ALIVE);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertTrue(cell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellAlive() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.ALIVE);
-        Cell cell3 = new Cell(State.ALIVE);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.ALIVE);
+        Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertTrue(cell.isAlive());
     }
     @Test
     void testApplyRulesWith1AliveNeighboursAndCurrentCellAlive() {
-        Cell cell1 = new Cell(State.ALIVE);
-        Cell cell2 = new Cell(State.DEAD);
-        Cell cell3 = new Cell(State.DEAD);
+        Cell firstCell = new Cell(State.ALIVE);
+        Cell secondCell = new Cell(State.DEAD);
+        Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
     @Test
     void testApplyRulesWithNoAliveNeighboursAndCurrentCellAlive() {
-        Cell cell1 = new Cell(State.DEAD                    );
-        Cell cell2 = new Cell(State.DEAD);
-        Cell cell3 = new Cell(State.DEAD);
+        Cell firstCell = new Cell(State.DEAD                    );
+        Cell secondCell = new Cell(State.DEAD);
+        Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(cell1, cell2, cell3)));
+        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
