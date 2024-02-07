@@ -4,25 +4,22 @@ import java.util.List;
 
 public class Cell {
     private State state;
-    private State nextState;
+
     Cell(State state) {
         this.state = state;
-        this.nextState = state;
     }
     boolean isAlive() {
         return state == State.ALIVE;
     }
 
-    void evolve(List<Cell> neighbours) {
+    Cell evolve(List<Cell> neighbours) {
         int aliveCount = countAliveNeighbours(neighbours);
         if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
-            this.nextState = State.DEAD;
+            return new Cell(State.DEAD);
         } else if (!isAlive() && aliveCount == 3) {
-            this.nextState = State.ALIVE;
+            return new Cell(State.ALIVE);
         }
-    }
-    void update() {
-        this.state = this.nextState;
+        return this;
     }
     int countAliveNeighbours(List<Cell> neighbours) {
         int countAlive = 0;

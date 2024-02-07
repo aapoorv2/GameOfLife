@@ -4,24 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EvolveEngine {
-    private final Cell[][] cells;
+    private Cell[][] cells;
     EvolveEngine(Cell[][] cells) {
         this.cells = cells;
     }
     void evolve() {
         int rows = cells.length;
         int columns = cells[0].length;
+        Cell[][] nextCells = new Cell[rows][columns];
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
                 List<Cell> neighbours = retrieveNeighboursOfCell(i, j);
-                cells[i][j].evolve(neighbours);
+                nextCells[i][j] = cells[i][j].evolve(neighbours);
             }
         }
-        for (int i = 0 ; i < rows ; i++) {
-            for (int j = 0 ; j < columns ; j++) {
-                cells[i][j].update();
-            }
-        }
+        cells = nextCells;
     }
     List<Cell> retrieveNeighboursOfCell(int row, int col) {
         int rows = cells.length;

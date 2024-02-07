@@ -34,7 +34,6 @@ class CellTest {
         Cell secondCell = new Cell(State.ALIVE);
         Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.DEAD);
-        Cell[] neighbours = {firstCell, secondCell, thirdCell};
         assertEquals(1, cell.countAliveNeighbours(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell))));
     }
     @Test
@@ -44,9 +43,8 @@ class CellTest {
         Cell thirdCell = new Cell(State.ALIVE);
         Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
-        cell.update();
-        assertFalse(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+        assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith4AliveNeighboursAndCurrentCellDead() {
@@ -55,9 +53,9 @@ class CellTest {
         Cell thirdCell = new Cell(State.ALIVE);
         Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
-        cell.update();
-        assertFalse(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+
+        assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellDead() {
@@ -65,9 +63,9 @@ class CellTest {
         Cell secondCell = new Cell(State.ALIVE);
         Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
-        cell.update();
-        assertTrue(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        assertTrue(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellAlive() {
@@ -75,9 +73,9 @@ class CellTest {
         Cell secondCell = new Cell(State.ALIVE);
         Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
-        cell.update();
-        assertTrue(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        assertTrue(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith1AliveNeighboursAndCurrentCellAlive() {
@@ -85,9 +83,9 @@ class CellTest {
         Cell secondCell = new Cell(State.DEAD);
         Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
-        cell.update();
-        assertFalse(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWithNoAliveNeighboursAndCurrentCellAlive() {
@@ -95,9 +93,9 @@ class CellTest {
         Cell secondCell = new Cell(State.DEAD);
         Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
-        cell.update();
-        assertFalse(cell.isAlive());
+        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        assertFalse(nextCell.isAlive());
     }
 
 }
