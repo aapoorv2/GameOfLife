@@ -3,31 +3,17 @@ package org.example;
 import java.util.List;
 
 public class Cell {
-    private State state;
+    private CellState state;
 
-    Cell(State state) {
+    Cell(CellState state) {
         this.state = state;
     }
     boolean isAlive() {
-        return state == State.ALIVE;
+        state.isAlive();
     }
 
     Cell evolve(List<Cell> neighbours) {
-        int aliveCount = countAliveNeighbours(neighbours);
-        if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
-            return new Cell(State.DEAD);
-        } else if (!isAlive() && aliveCount == 3) {
-            return new Cell(State.ALIVE);
-        }
-        return this;
+        state.evolve(neighbours);
     }
-    int countAliveNeighbours(List<Cell> neighbours) {
-        int countAlive = 0;
-        for (Cell cell : neighbours) {
-            if(cell.isAlive()) {
-                countAlive++;
-            }
-        }
-        return countAlive;
-    }
+
 }
