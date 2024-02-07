@@ -9,11 +9,11 @@ public class Cell {
         this.state = state;
     }
     boolean isAlive() {
-        state.isAlive();
+        return state.isAlive();
     }
 
     Cell evolve(List<Cell> neighbours) {
-        state.evolve(neighbours);
+        return state.evolve(neighbours);
     }
 
 }

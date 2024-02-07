@@ -22,7 +22,7 @@ public class Board {
         this.cells = new Cell[rows][columns];
         for (int i = 0 ; i < rows ; i++) {
             for (int j = 0 ; j < columns ; j++) {
-                cells[i][j] = new Cell(State.DEAD);
+                cells[i][j] = new Cell(new DeadState());
             }
         }
         this.boardInitializer = new BoardInitializer(cells);
