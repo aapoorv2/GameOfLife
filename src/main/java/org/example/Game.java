@@ -7,15 +7,11 @@ public class Game {
         this.board = new Board(rows, columns, fillPercent);
     }
     void start() throws InterruptedException {
-        int aliveCellsCount = board.countAliveCells();
         int generation = 1;
-        board.print(generation);
-        while (aliveCellsCount > 0) {
-            board.update();
-            aliveCellsCount = board.countAliveCells();
-            Thread.sleep(1000);
-            generation++;
+        while (board.countAliveCells() > 0) {
             board.print(generation);
+            board.update();
+            Thread.sleep(1000);
         }
     }
 

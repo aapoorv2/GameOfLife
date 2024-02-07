@@ -20,20 +20,14 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
         this.cells = new Cell[rows][columns];
-        for (int i = 0 ; i < rows ; i++) {
-            for (int j = 0 ; j < columns ; j++) {
-                cells[i][j] = new Cell(new DeadState());
-            }
-        }
         this.boardInitializer = new BoardInitializer(cells);
         this.evolutionEngine = new EvolutionEngine(cells);
         boardInitializer.initializeBoard(fillPercent);
 
     }
     void update() {
-        cells = evolutionEngine.evolve();
+        this.cells = evolutionEngine.evolve();
     }
-
     int countAliveCells() {
         int count = 0;
         for (int i = 0 ; i < rows ; i++) {
@@ -43,10 +37,11 @@ public class Board {
                 }
             }
         }
+        if (count == 0) {
+            InputOutput.instance().printAllCellsAreDead();
+        }
         return count;
     }
-
-
     void print(int generation) {
         InputOutput.instance().printBoard(cells, rows, columns, generation);
     }

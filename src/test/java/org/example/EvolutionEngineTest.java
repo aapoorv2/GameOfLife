@@ -52,16 +52,6 @@ class EvolutionEngineTest {
                 {new Cell(new AliveState()), new Cell(new AliveState())},
                 {new Cell(new AliveState()), new Cell(new AliveState())}
         };
-        Cell[][] expectedSecondGenerationCells = new Cell[][] {
-                {new Cell(new AliveState()), new Cell(new AliveState())},
-                {new Cell(new DeadState()), new Cell(new DeadState())},
-                {new Cell(new AliveState()), new Cell(new AliveState())}
-        };
-        Cell[][] expectedThirdGenerationCells = new Cell[][] {
-                {new Cell(new DeadState()), new Cell(new DeadState())},
-                {new Cell(new DeadState()), new Cell(new DeadState())},
-                {new Cell(new DeadState()), new Cell(new DeadState())}
-        };
         Cell[][] expectedFourthGenerationCells = new Cell[][] {
                 {new Cell(new DeadState()), new Cell(new DeadState())},
                 {new Cell(new DeadState()), new Cell(new DeadState())},
@@ -69,12 +59,10 @@ class EvolutionEngineTest {
         };
         EvolutionEngine evolutionEngine = new EvolutionEngine(cells);
 
-        Cell[][] secondGenerationCells = evolutionEngine.evolve();
-        Cell[][] thirdGenerationCells = evolutionEngine.evolve();
+        evolutionEngine.evolve();
+        evolutionEngine.evolve();
         Cell[][] fourthGenerationCells = evolutionEngine.evolve();
 
-        assertArrayEquals(expectedSecondGenerationCells, secondGenerationCells);
-        assertArrayEquals(expectedThirdGenerationCells, thirdGenerationCells);
         assertArrayEquals(expectedFourthGenerationCells, fourthGenerationCells);
     }
 

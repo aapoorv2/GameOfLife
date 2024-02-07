@@ -10,8 +10,13 @@ public class BoardInitializer {
     void initializeBoard(int fillPercent) {
         int rows = cells.length;
         int columns = cells[0].length;
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0 ; j < columns ; j++) {
+                cells[i][j] = new Cell(new DeadState());
+            }
+        }
         int filled = 0;
-        int total = (   fillPercent * rows * columns) / 100;
+        int total = (fillPercent * rows * columns) / 100;
         while (filled < total) {
             Random rand = new Random();
             int i = rand.nextInt(rows);

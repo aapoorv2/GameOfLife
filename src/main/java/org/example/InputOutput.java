@@ -34,4 +34,8 @@ public class InputOutput {
             System.out.println();
         }
     }
+
+    public void printAllCellsAreDead() {
+        System.out.println("All Cells are Dead!");
+    }
 }
