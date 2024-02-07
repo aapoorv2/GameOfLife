@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EvolutionEngine {
-    private final Cell[][] cells;
+    private Cell[][] cells;
     EvolutionEngine(Cell[][] cells) {
         this.cells = cells;
     }
@@ -17,6 +17,7 @@ public class EvolutionEngine {
                 nextCells[i][j] = cells[i][j].evolve(countAliveNeighbours(i, j));
             }
         }
+        cells = nextCells;
         return nextCells;
     }
     private int countAliveNeighbours(int row, int col) {
