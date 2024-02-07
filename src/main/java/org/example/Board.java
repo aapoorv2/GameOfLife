@@ -6,7 +6,7 @@ import org.example.exceptions.InvalidSeedException;
 public class Board {
     private final int rows;
     private final int columns;
-    private final Cell[][] cells;
+    private Cell[][] cells;
     private final BoardInitializer boardInitializer;
     private final EvolveEngine evolveEngine;
 
@@ -31,7 +31,7 @@ public class Board {
 
     }
     void update() {
-        evolveEngine.evolve();
+        cells = evolveEngine.evolve();
     }
 
     int countAliveCells() {

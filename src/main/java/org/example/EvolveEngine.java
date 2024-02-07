@@ -8,7 +8,7 @@ public class EvolveEngine {
     EvolveEngine(Cell[][] cells) {
         this.cells = cells;
     }
-    void evolve() {
+    Cell[][] evolve() {
         int rows = cells.length;
         int columns = cells[0].length;
         Cell[][] nextCells = new Cell[rows][columns];
@@ -18,7 +18,7 @@ public class EvolveEngine {
                 nextCells[i][j] = cells[i][j].evolve(neighbours);
             }
         }
-        cells = nextCells;
+        return nextCells;
     }
     List<Cell> retrieveNeighboursOfCell(int row, int col) {
         int rows = cells.length;
