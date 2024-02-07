@@ -21,62 +21,49 @@ class CellTest {
 
     @Test
     void testApplyRulesWith4AliveNeighboursAndCurrentCellAlive() {
-        Cell firstCell = new Cell(new AliveState());
-        Cell secondCell = new Cell(new AliveState());
-        Cell thirdCell = new Cell(new AliveState());
-        Cell fourthCell = new Cell(new AliveState());
         Cell cell = new Cell(new AliveState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+
+        Cell nextCell = cell.evolve(4);
+
         assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith4AliveNeighboursAndCurrentCellDead() {
-        Cell firstCell = new Cell(new AliveState());
-        Cell secondCell = new Cell(new AliveState());
-        Cell thirdCell = new Cell(new AliveState());
-        Cell fourthCell = new Cell(new AliveState());
         Cell cell = new Cell(new DeadState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+
+        Cell nextCell = cell.evolve(4);
 
         assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellDead() {
-        Cell firstCell = new Cell(new AliveState());
-        Cell secondCell = new Cell(new AliveState());
-        Cell thirdCell = new Cell(new AliveState());
         Cell cell = new Cell(new DeadState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        Cell nextCell = cell.evolve(3);
 
         assertTrue(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith3AliveNeighboursAndCurrentCellAlive() {
-        Cell firstCell = new Cell(new AliveState());
-        Cell secondCell = new Cell(new AliveState());
-        Cell thirdCell = new Cell(new AliveState());
         Cell cell = new Cell(new AliveState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        Cell nextCell = cell.evolve(3);
 
         assertTrue(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWith1AliveNeighboursAndCurrentCellAlive() {
-        Cell firstCell = new Cell(new AliveState());
-        Cell secondCell = new Cell(new DeadState());
-        Cell thirdCell = new Cell(new DeadState());
         Cell cell = new Cell(new AliveState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        Cell nextCell = cell.evolve(1);
 
         assertFalse(nextCell.isAlive());
     }
     @Test
     void testApplyRulesWithNoAliveNeighboursAndCurrentCellAlive() {
-        Cell firstCell = new Cell(new DeadState());
-        Cell secondCell = new Cell(new DeadState());
-        Cell thirdCell = new Cell(new DeadState());
         Cell cell = new Cell(new AliveState());
-        Cell nextCell = cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+
+        Cell nextCell = cell.evolve(0);
 
         assertFalse(nextCell.isAlive());
     }

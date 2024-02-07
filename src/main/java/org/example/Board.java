@@ -8,7 +8,7 @@ public class Board {
     private final int columns;
     private Cell[][] cells;
     private final BoardInitializer boardInitializer;
-    private final EvolveEngine evolveEngine;
+    private final EvolutionEngine evolutionEngine;
 
     Board(int rows, int columns, int fillPercent) {
         if (rows <= 0 || columns <= 0) {
@@ -26,12 +26,12 @@ public class Board {
             }
         }
         this.boardInitializer = new BoardInitializer(cells);
-        this.evolveEngine = new EvolveEngine(cells);
+        this.evolutionEngine = new EvolutionEngine(cells);
         boardInitializer.initializeBoard(fillPercent);
 
     }
     void update() {
-        cells = evolveEngine.evolve();
+        cells = evolutionEngine.evolve();
     }
 
     int countAliveCells() {
