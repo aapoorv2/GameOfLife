@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EvolverTest {
+class EvolveEngineTest {
     @Test
     public void testRetrieveNeighboursOfCellAtPosition1_1() {
         Cell[][] cells = new Cell[3][3];
@@ -15,8 +15,8 @@ class EvolverTest {
                 cells[i][j] = new Cell(State.DEAD);
             }
         }
-        Evolver evolver = new Evolver(cells);
-        List<Cell> neighbours = evolver.retrieveNeighboursOfCell(1, 1);
+        EvolveEngine evolveEngine = new EvolveEngine(cells);
+        List<Cell> neighbours = evolveEngine.retrieveNeighboursOfCell(1, 1);
 
         assertEquals(8, neighbours.size());
     }
@@ -28,8 +28,8 @@ class EvolverTest {
                 cells[i][j] = new Cell(State.DEAD);
             }
         }
-        Evolver evolver = new Evolver(cells);
-        List<Cell> neighbours = evolver.retrieveNeighboursOfCell(0, 0);
+        EvolveEngine evolveEngine = new EvolveEngine(cells);
+        List<Cell> neighbours = evolveEngine.retrieveNeighboursOfCell(0, 0);
 
         assertEquals(3, neighbours.size());
     }

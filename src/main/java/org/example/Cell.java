@@ -13,7 +13,7 @@ public class Cell {
         return state == State.ALIVE;
     }
 
-    void applyRules(List<Cell> neighbours) {
+    void evolve(List<Cell> neighbours) {
         int aliveCount = countAliveNeighbours(neighbours);
         if (isAlive() && (aliveCount < 2 || aliveCount > 3)) {
             this.nextState = State.DEAD;

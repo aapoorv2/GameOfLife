@@ -44,7 +44,7 @@ class CellTest {
         Cell thirdCell = new Cell(State.ALIVE);
         Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
@@ -55,7 +55,7 @@ class CellTest {
         Cell thirdCell = new Cell(State.ALIVE);
         Cell fourthCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell, fourthCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
@@ -65,7 +65,7 @@ class CellTest {
         Cell secondCell = new Cell(State.ALIVE);
         Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.DEAD);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertTrue(cell.isAlive());
     }
@@ -75,7 +75,7 @@ class CellTest {
         Cell secondCell = new Cell(State.ALIVE);
         Cell thirdCell = new Cell(State.ALIVE);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertTrue(cell.isAlive());
     }
@@ -85,7 +85,7 @@ class CellTest {
         Cell secondCell = new Cell(State.DEAD);
         Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }
@@ -95,7 +95,7 @@ class CellTest {
         Cell secondCell = new Cell(State.DEAD);
         Cell thirdCell = new Cell(State.DEAD);
         Cell cell = new Cell(State.ALIVE);
-        cell.applyRules(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
+        cell.evolve(new ArrayList<>(Arrays.asList(firstCell, secondCell, thirdCell)));
         cell.update();
         assertFalse(cell.isAlive());
     }

@@ -3,16 +3,12 @@ package org.example;
 import org.example.exceptions.InvalidDimensionsException;
 import org.example.exceptions.InvalidSeedException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class Board {
     private final int rows;
     private final int columns;
     private final Cell[][] cells;
     private final BoardInitializer boardInitializer;
-    private final Evolver evolver;
+    private final EvolveEngine evolveEngine;
 
     Board(int rows, int columns, int fillPercent) {
         if (rows <= 0 || columns <= 0) {
@@ -30,12 +26,12 @@ public class Board {
             }
         }
         this.boardInitializer = new BoardInitializer(cells);
-        this.evolver = new Evolver(cells);
+        this.evolveEngine = new EvolveEngine(cells);
         boardInitializer.initializeBoard(fillPercent);
 
     }
     void update() {
-        evolver.evolveCells();
+        evolveEngine.evolve();
     }
 
     int countAliveCells() {
