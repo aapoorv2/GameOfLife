@@ -2,11 +2,9 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class EvolutionEngineTest {
+class CellularAutomataTest {
     @Test
     public void testEvolvingTheCellsFor1Iteration() {
         Cell[][] cells = new Cell[][] {
@@ -17,9 +15,9 @@ class EvolutionEngineTest {
                 {new Cell(new AliveState()), new Cell(new AliveState())},
                 {new Cell(new AliveState()), new Cell(new AliveState())}
         };
-        EvolutionEngine evolutionEngine = new EvolutionEngine(cells);
+        CellularAutomata cellularAutomata = new CellularAutomata(cells);
 
-        Cell[][] nextCells = evolutionEngine.evolve();
+        Cell[][] nextCells = cellularAutomata.evolve();
 
         assertArrayEquals(expectedNextCells, nextCells);
     }
@@ -37,10 +35,10 @@ class EvolutionEngineTest {
                 {new Cell(new AliveState()), new Cell(new AliveState())},
                 {new Cell(new AliveState()), new Cell(new AliveState())}
         };
-        EvolutionEngine evolutionEngine = new EvolutionEngine(cells);
+        CellularAutomata cellularAutomata = new CellularAutomata(cells);
 
-        Cell[][] secondGenerationCells = evolutionEngine.evolve();
-        Cell[][] thirdGenerationCells = evolutionEngine.evolve();
+        Cell[][] secondGenerationCells = cellularAutomata.evolve();
+        Cell[][] thirdGenerationCells = cellularAutomata.evolve();
 
         assertArrayEquals(expectedSecondGenerationCells, secondGenerationCells);
         assertArrayEquals(expectedThirdGenerationCells, thirdGenerationCells);
@@ -57,11 +55,11 @@ class EvolutionEngineTest {
                 {new Cell(new DeadState()), new Cell(new DeadState())},
                 {new Cell(new DeadState()), new Cell(new DeadState())}
         };
-        EvolutionEngine evolutionEngine = new EvolutionEngine(cells);
+        CellularAutomata cellularAutomata = new CellularAutomata(cells);
 
-        evolutionEngine.evolve();
-        evolutionEngine.evolve();
-        Cell[][] fourthGenerationCells = evolutionEngine.evolve();
+        cellularAutomata.evolve();
+        cellularAutomata.evolve();
+        Cell[][] fourthGenerationCells = cellularAutomata.evolve();
 
         assertArrayEquals(expectedFourthGenerationCells, fourthGenerationCells);
     }

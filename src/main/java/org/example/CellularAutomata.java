@@ -1,10 +1,10 @@
 package org.example;
 
-public class EvolutionEngine {
+public class CellularAutomata {
     private Cell[][] cells;
     private final int rows;
     private final int columns;
-    EvolutionEngine(Cell[][] cells) {
+    CellularAutomata(Cell[][] cells) {
         this.rows = cells.length;
         this.columns = cells[0].length;
         this.cells = cells;
