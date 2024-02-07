@@ -12,7 +12,7 @@ class EvolveEngineTest {
         Cell[][] cells = new Cell[3][3];
         for (int i = 0 ; i < 3 ; i++) {
             for (int j = 0 ; j < 3 ; j++) {
-                cells[i][j] = new Cell(State.DEAD);
+                cells[i][j] = new Cell(new DeadState());
             }
         }
         EvolveEngine evolveEngine = new EvolveEngine(cells);
@@ -25,7 +25,7 @@ class EvolveEngineTest {
         Cell[][] cells = new Cell[3][3];
         for (int i = 0 ; i < 3 ; i++) {
             for (int j = 0 ; j < 3 ; j++) {
-                cells[i][j] = new Cell(State.DEAD);
+                cells[i][j] = new Cell(new DeadState());
             }
         }
         EvolveEngine evolveEngine = new EvolveEngine(cells);

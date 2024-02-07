@@ -14,6 +14,6 @@ public class AliveState implements CellState {
 
     @Override
     public boolean isAlive() {
-        return false;
+        return true;
     }
 }

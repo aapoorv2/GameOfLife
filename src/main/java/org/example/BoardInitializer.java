@@ -17,7 +17,7 @@ public class BoardInitializer {
             int i = rand.nextInt(rows);
             int j = rand.nextInt(columns);
             if (!cells[i][j].isAlive()) {
-                cells[i][j] = new Cell(State.ALIVE);
+                cells[i][j] = new Cell(new AliveState());
                 filled++;
             }
         }
